@@ -52,7 +52,7 @@ namespace GameOfLife
                 {
                     int aliveNeighbours = numberOfAliveNeighbours(x, y, grid);
                     if (grid[x, y]) // cell is alive
-                    { 
+                    {
                         if (aliveNeighbours == 2 || aliveNeighbours == 3)
                         {
                             new_grid[x, y] = true;
@@ -78,7 +78,43 @@ namespace GameOfLife
 
         static int numberOfAliveNeighbours(int cell_x, int cell_y, bool[,] grid)
         {
-            throw new NotImplementedException();
+            int aliveNeighbours = 0;
+            if(grid[cell_x - 1, cell_y - 1])
+            {
+                aliveNeighbours++;
+            }
+            if (grid[cell_x, cell_y - 1])
+            {
+                aliveNeighbours++;
+            }
+            if (grid[cell_x + 1, cell_y - 1])
+            {
+                aliveNeighbours++;
+            }
+
+            if (grid[cell_x - 1, cell_y])
+            {
+                aliveNeighbours++;
+            }
+            if (grid[cell_x + 1, cell_y])
+            {
+                aliveNeighbours++;
+            }
+
+            if (grid[cell_x - 1, cell_y + 1])
+            {
+                aliveNeighbours++;
+            }
+            if (grid[cell_x, cell_y + 1])
+            {
+                aliveNeighbours++;
+            }
+            if (grid[cell_x + 1, cell_y + 1])
+            {
+                aliveNeighbours++;
+            }
+
+            return aliveNeighbours;
         }
     }
 }
