@@ -45,7 +45,7 @@ namespace GameOfLife
 
         static bool[,] GridTransformation(bool[,] grid)
         {
-            bool[,] new_grid = grid;
+            bool[,] new_grid = new bool[grid.GetLength(0), grid.GetLength(1)];
             for (int y = 0; y < grid.GetLength(0); y++)
             {
                 for (int x = 0; x < grid.GetLength(1); x++)
