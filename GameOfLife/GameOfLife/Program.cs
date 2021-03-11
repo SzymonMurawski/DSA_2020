@@ -16,7 +16,11 @@ namespace GameOfLife
 
         static bool[,] GridInitialization()
         {
-            throw new NotImplementedException();
+            bool[,] grid = new bool[20, 20];
+            grid[1, 1] = true;
+            grid[1, 2] = true;
+            grid[1, 3] = true;
+            return grid;
         }
 
         static void GridDisplay(bool[,] grid)
