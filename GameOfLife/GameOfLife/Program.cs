@@ -11,7 +11,7 @@ namespace GameOfLife
             {
                 System.Threading.Thread.Sleep(1000);
                 GridDisplay(grid);
-                //grid = GridTransformation(grid);
+                grid = GridTransformation(grid);
             }
         }
 
@@ -44,6 +44,39 @@ namespace GameOfLife
         }
 
         static bool[,] GridTransformation(bool[,] grid)
+        {
+            bool[,] new_grid = grid;
+            for (int y = 0; y < grid.GetLength(0); y++)
+            {
+                for (int x = 0; x < grid.GetLength(1); x++)
+                {
+                    int aliveNeighbours = numberOfAliveNeighbours(x, y, grid);
+                    if (grid[x, y]) // cell is alive
+                    { 
+                        if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                        {
+                            new_grid[x, y] = true;
+                        } else
+                        {
+                            new_grid[x, y] = false;
+                        }
+
+                    } else // cell is dead
+                    {
+                        if (aliveNeighbours == 3)
+                        {
+                            new_grid[x, y] = true;
+                        } else
+                        {
+                            new_grid[x, y] = false;
+                        }
+                    }
+                }
+            }
+            return new_grid;
+        }
+
+        static int numberOfAliveNeighbours(int cell_x, int cell_y, bool[,] grid)
         {
             throw new NotImplementedException();
         }
