@@ -79,37 +79,39 @@ namespace GameOfLife
         static int numberOfAliveNeighbours(int cell_x, int cell_y, bool[,] grid)
         {
             int aliveNeighbours = 0;
-            if(grid[cell_x - 1, cell_y - 1])
+            int dx = grid.GetLength(0);
+            int dy = grid.GetLength(1);
+            if(grid[(cell_x  - 1 + dx) % dx, (cell_y  - 1 + dy) % dy])
             {
                 aliveNeighbours++;
             }
-            if (grid[cell_x, cell_y - 1])
+            if (grid[cell_x, (cell_y  - 1 + dy) % dy])
             {
                 aliveNeighbours++;
             }
-            if (grid[cell_x + 1, cell_y - 1])
-            {
-                aliveNeighbours++;
-            }
-
-            if (grid[cell_x - 1, cell_y])
-            {
-                aliveNeighbours++;
-            }
-            if (grid[cell_x + 1, cell_y])
+            if (grid[(cell_x + 1) % dx, (cell_y  - 1 + dy) % dy])
             {
                 aliveNeighbours++;
             }
 
-            if (grid[cell_x - 1, cell_y + 1])
+            if (grid[(cell_x  - 1 + dx) % dx, cell_y])
             {
                 aliveNeighbours++;
             }
-            if (grid[cell_x, cell_y + 1])
+            if (grid[(cell_x + 1) % dx, cell_y])
             {
                 aliveNeighbours++;
             }
-            if (grid[cell_x + 1, cell_y + 1])
+
+            if (grid[(cell_x  - 1 + dx) % dx, (cell_y + 1) % dy])
+            {
+                aliveNeighbours++;
+            }
+            if (grid[cell_x, (cell_y + 1) % dy])
+            {
+                aliveNeighbours++;
+            }
+            if (grid[(cell_x + 1) % dx, (cell_y + 1) % dy])
             {
                 aliveNeighbours++;
             }
