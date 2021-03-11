@@ -9,8 +9,9 @@ namespace GameOfLife
             bool[,] grid = GridInitialization();
             while (true)
             {
+                System.Threading.Thread.Sleep(1000);
                 GridDisplay(grid);
-                grid = GridTransformation(grid);
+                //grid = GridTransformation(grid);
             }
         }
 
@@ -25,7 +26,21 @@ namespace GameOfLife
 
         static void GridDisplay(bool[,] grid)
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            for (int y = 0; y < grid.GetLength(0); y++)
+            {
+                for (int x = 0; x < grid.GetLength(1); x++)
+                {
+                    if (grid[x, y])
+                    {
+                        Console.Write("X");
+                    } else
+                    {
+                        Console.Write(".");
+                    }
+                }
+                Console.WriteLine();
+            }
         }
 
         static bool[,] GridTransformation(bool[,] grid)
