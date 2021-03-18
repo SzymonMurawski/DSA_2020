@@ -22,6 +22,19 @@ namespace GameOfLife
             Grid[3, 5] = true;
             Grid[4, 5] = true;
         }
+
+        public void InitializeRandomly()
+        {
+            Random engine = new Random();
+            for (int y = 0; y < Grid.GetLength(0); y++)
+            {
+                for (int x = 0; x < Grid.GetLength(1); x++)
+                {
+                    Grid[x, y] = engine.Next() % 2 == 0;
+                }
+            }
+        }
+
         public void Display()
         {
             Console.Clear();

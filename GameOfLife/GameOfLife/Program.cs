@@ -7,7 +7,7 @@ namespace GameOfLife
         static void Main(string[] args)
         {
             GoLGrid gameGrid = new GoLGrid();
-            gameGrid.Initialize();
+            gameGrid.InitializeRandomly();
             while (true)
             {
                 System.Threading.Thread.Sleep(1000);
