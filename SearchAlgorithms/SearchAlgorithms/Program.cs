@@ -19,24 +19,26 @@ namespace SearchAlgorithms
             {
                 case "SIMPLE":
                     watch.Start();
-                    SimpleSearchEngine.SimpleLinearSearch(Array1, bestCase);
+                    SimpleSearchEngine engine = new SimpleSearchEngine();
+                    engine.Search(Array1, bestCase);
                     watch.Stop();
                     bestCaseTime = watch.ElapsedMilliseconds;
                     watch.Reset();
                     watch.Start();
-                    SimpleSearchEngine.SimpleLinearSearch(Array1, worstCase);
+                    engine.Search(Array1, worstCase);
                     watch.Stop();
                     worstCaseTime = watch.ElapsedMilliseconds;
                     Console.WriteLine($"Best case: {bestCaseTime}ms,\nWorst case: {worstCaseTime}ms");
                     break;
                 case "IMPROVED":
                     watch.Start();
-                    ImprovedSearchEngine.ImprovedLinearSearch(Array1, bestCase);
+                    ImprovedSearchEngine engine2 = new ImprovedSearchEngine();
+                    engine2.Search(Array1, bestCase);
                     watch.Stop();
                     bestCaseTime = watch.ElapsedMilliseconds;
                     watch.Reset();
                     watch.Start();
-                    ImprovedSearchEngine.ImprovedLinearSearch(Array1, worstCase);
+                    engine2.Search(Array1, worstCase);
                     watch.Stop();
                     worstCaseTime = watch.ElapsedMilliseconds;
                     Console.WriteLine($"Best case: {bestCaseTime}ms,\nWorst case: {worstCaseTime}ms");

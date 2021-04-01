@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SearchAlgorithms
 {
-    public class ImprovedWithSentinelSearchEngine
+    public class ImprovedWithSentinelSearchEngine : ISearchEngine 
     {
-        public static bool ImprovedLinearSearchWithSentinel(int[] Array, int x)
+        public bool Search(int[] Array, int x)
         {
             throw new NotImplementedException();
         }

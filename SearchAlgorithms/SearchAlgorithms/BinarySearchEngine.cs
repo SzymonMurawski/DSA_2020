@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SearchAlgorithms
 {
-    public class BinarySearchEngine
+    public class BinarySearchEngine : ISearchEngine
     {
-        public static bool BinarySearch(int[] Array, int x)
+        public bool Search(int[] Array, int x)
         {
             throw new NotImplementedException();
         }

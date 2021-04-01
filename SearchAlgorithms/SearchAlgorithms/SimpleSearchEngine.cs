@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SearchAlgorithms
 {
-    public class SimpleSearchEngine
+    public class SimpleSearchEngine : ISearchEngine
     {
-        public static bool SimpleLinearSearch(int[] Array, int x)
+        public bool Search(int[] Array, int x)
         {
             for (int i = 0; i < Array.Length; i++)
             {
