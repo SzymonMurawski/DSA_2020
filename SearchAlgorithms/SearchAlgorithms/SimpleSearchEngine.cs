@@ -17,5 +17,9 @@ namespace SearchAlgorithms
             }
             return false;
         }
+        public void someFunction()
+        {
+
+        }
     }
 }

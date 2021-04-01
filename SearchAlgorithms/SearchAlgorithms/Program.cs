@@ -13,42 +13,37 @@ namespace SearchAlgorithms
             long bestCaseTime;
             long worstCaseTime;
 
-            Console.WriteLine("select mode: SIMPLE or IMPROVED");
+            Console.WriteLine("select mode: SIMPLE, IMPROVED or BINARY");
             string mode = Console.ReadLine();
+            ISearchEngine engine;
             switch (mode)
             {
                 case "SIMPLE":
-                    watch.Start();
-                    SimpleSearchEngine engine = new SimpleSearchEngine();
-                    engine.Search(Array1, bestCase);
-                    watch.Stop();
-                    bestCaseTime = watch.ElapsedMilliseconds;
-                    watch.Reset();
-                    watch.Start();
-                    engine.Search(Array1, worstCase);
-                    watch.Stop();
-                    worstCaseTime = watch.ElapsedMilliseconds;
-                    Console.WriteLine($"Best case: {bestCaseTime}ms,\nWorst case: {worstCaseTime}ms");
+                    engine = new SimpleSearchEngine();
                     break;
                 case "IMPROVED":
-                    watch.Start();
-                    ImprovedSearchEngine engine2 = new ImprovedSearchEngine();
-                    engine2.Search(Array1, bestCase);
-                    watch.Stop();
-                    bestCaseTime = watch.ElapsedMilliseconds;
-                    watch.Reset();
-                    watch.Start();
-                    engine2.Search(Array1, worstCase);
-                    watch.Stop();
-                    worstCaseTime = watch.ElapsedMilliseconds;
-                    Console.WriteLine($"Best case: {bestCaseTime}ms,\nWorst case: {worstCaseTime}ms");
+                    engine = new ImprovedSearchEngine();
+                    break;
+                case "BINARY":
+                    engine = new BinarySearchEngine();
                     break;
                 default:
                     Console.WriteLine("No mode chosen, closing");
-                    break;
+                    return;
             }
-            
-            
+
+            watch.Start();
+            engine.Search(Array1, bestCase);
+            watch.Stop();
+            bestCaseTime = watch.ElapsedMilliseconds;
+            watch.Reset();
+            watch.Start();
+            engine.Search(Array1, worstCase);
+            watch.Stop();
+            worstCaseTime = watch.ElapsedMilliseconds;
+            Console.WriteLine($"Best case: {bestCaseTime}ms,\nWorst case: {worstCaseTime}ms");
+
+
         }
 
         static int[] CreateArray(int size)
