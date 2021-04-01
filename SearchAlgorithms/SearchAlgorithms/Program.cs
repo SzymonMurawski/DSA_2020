@@ -17,7 +17,7 @@ namespace SearchAlgorithms
             switch (mode)
             {
                 case "SIMPLE":
-                    return new SimpleSearchEngine();;
+                    return new SimpleSearchEngine();
                 case "IMPROVED":
                     return new ImprovedSearchEngine();
                 case "BINARY":
