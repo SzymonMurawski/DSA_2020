@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Project_1
+namespace SearchAlgorithms
 {
     class Program
     {
@@ -19,24 +19,24 @@ namespace Project_1
             {
                 case "SIMPLE":
                     watch.Start();
-                    SimpleLinearSearch(Array1, bestCase);
+                    SimpleSearchEngine.SimpleLinearSearch(Array1, bestCase);
                     watch.Stop();
                     bestCaseTime = watch.ElapsedMilliseconds;
                     watch.Reset();
                     watch.Start();
-                    SimpleLinearSearch(Array1, worstCase);
+                    SimpleSearchEngine.SimpleLinearSearch(Array1, worstCase);
                     watch.Stop();
                     worstCaseTime = watch.ElapsedMilliseconds;
                     Console.WriteLine($"Best case: {bestCaseTime}ms,\nWorst case: {worstCaseTime}ms");
                     break;
                 case "IMPROVED":
                     watch.Start();
-                    ImprovedLinearSearch(Array1, bestCase);
+                    ImprovedSearchEngine.ImprovedLinearSearch(Array1, bestCase);
                     watch.Stop();
                     bestCaseTime = watch.ElapsedMilliseconds;
                     watch.Reset();
                     watch.Start();
-                    ImprovedLinearSearch(Array1, worstCase);
+                    ImprovedSearchEngine.ImprovedLinearSearch(Array1, worstCase);
                     watch.Stop();
                     worstCaseTime = watch.ElapsedMilliseconds;
                     Console.WriteLine($"Best case: {bestCaseTime}ms,\nWorst case: {worstCaseTime}ms");
@@ -66,35 +66,6 @@ namespace Project_1
                 Array[i] = rd.Next(7, 101);
             }
             //Array[99999] = 6;
-        }
-
-
-
-        static bool SimpleLinearSearch(int[] Array, int x)
-        {
-            for (int i = 0; i < Array.Length; i++)
-            {
-                if (Array[i] == x)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        static bool ImprovedLinearSearch(int[] Array, int x)
-        {
-            throw new NotImplementedException();
-        }
-
-        static bool ImprovedLinearSearchWithSentinel(int[] Array, int x)
-        {
-            throw new NotImplementedException();
-        }
-
-        static bool BinarySearch(int[] Array, int x)
-        {
-            throw new NotImplementedException();
         }
     }
 }
