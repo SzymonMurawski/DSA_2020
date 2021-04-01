@@ -10,20 +10,43 @@ namespace Project_1
             int[] Array1 = CreateArray(100000000);
             int bestCase = Array1[0];
             int worstCase = -1;
-            
-            watch.Start();
-            Search(Array1, bestCase);
-            watch.Stop();
-            long bestCaseTime = watch.ElapsedMilliseconds;
-            
-            watch.Reset();
+            long bestCaseTime;
+            long worstCaseTime;
 
-
-            watch.Start();
-            Search(Array1, worstCase);
-            watch.Stop();
-            long worstCaseTime = watch.ElapsedMilliseconds;
-            Console.WriteLine($"Best case: {bestCaseTime}ms,\nWorst case: {worstCaseTime}ms");
+            Console.WriteLine("select mode: SIMPLE or IMPROVED");
+            string mode = Console.ReadLine();
+            switch (mode)
+            {
+                case "SIMPLE":
+                    watch.Start();
+                    SimpleLinearSearch(Array1, bestCase);
+                    watch.Stop();
+                    bestCaseTime = watch.ElapsedMilliseconds;
+                    watch.Reset();
+                    watch.Start();
+                    SimpleLinearSearch(Array1, worstCase);
+                    watch.Stop();
+                    worstCaseTime = watch.ElapsedMilliseconds;
+                    Console.WriteLine($"Best case: {bestCaseTime}ms,\nWorst case: {worstCaseTime}ms");
+                    break;
+                case "IMPROVED":
+                    watch.Start();
+                    ImprovedLinearSearch(Array1, bestCase);
+                    watch.Stop();
+                    bestCaseTime = watch.ElapsedMilliseconds;
+                    watch.Reset();
+                    watch.Start();
+                    ImprovedLinearSearch(Array1, worstCase);
+                    watch.Stop();
+                    worstCaseTime = watch.ElapsedMilliseconds;
+                    Console.WriteLine($"Best case: {bestCaseTime}ms,\nWorst case: {worstCaseTime}ms");
+                    break;
+                default:
+                    Console.WriteLine("No mode chosen, closing");
+                    break;
+            }
+            
+            
         }
 
         static int[] CreateArray(int size)
@@ -47,7 +70,7 @@ namespace Project_1
 
 
 
-        static bool Search(int[] Array, int x)
+        static bool SimpleLinearSearch(int[] Array, int x)
         {
             for (int i = 0; i < Array.Length; i++)
             {
@@ -57,6 +80,21 @@ namespace Project_1
                 }
             }
             return false;
+        }
+
+        static bool ImprovedLinearSearch(int[] Array, int x)
+        {
+            throw new NotImplementedException();
+        }
+
+        static bool ImprovedLinearSearchWithSentinel(int[] Array, int x)
+        {
+            throw new NotImplementedException();
+        }
+
+        static bool BinarySearch(int[] Array, int x)
+        {
+            throw new NotImplementedException();
         }
     }
 }
