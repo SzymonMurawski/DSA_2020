@@ -7,7 +7,7 @@ namespace GameOfLife
     class GoLGrid
     {
         private bool[,] Grid;
-        public GoLGrid()
+        public GoLGrid() // Constructor
         {
             Grid = new bool[20, 20];
         }
