@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LinearDataStructures
 {
-    class LinkedList
+    public class LinkedList
     {
         public LinkedListNode First { get; set; }
         public LinkedListNode Last { get; set; }
@@ -27,6 +27,20 @@ namespace LinearDataStructures
                 First = newNode;
             }
             Last = newNode;
+            Count++;
+        }
+        public void AddFirst(int value)
+        {
+            LinkedListNode newNode = new LinkedListNode(value);
+            if(First != null)
+            {
+                newNode.Next = First;
+            }
+            First = newNode;
+            if(Count == 0)
+            {
+                Last = newNode;
+            }
             Count++;
         }
     }
