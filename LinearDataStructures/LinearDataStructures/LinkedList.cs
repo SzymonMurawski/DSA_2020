@@ -43,5 +43,16 @@ namespace LinearDataStructures
             }
             Count++;
         }
+        public int RemoveFirst()
+        {
+            int returnValue = First.Data;
+            First = First.Next;
+            Count--;
+            if(Count == 0)
+            {
+                Last = null;
+            }
+            return returnValue;
+        }
     }
 }

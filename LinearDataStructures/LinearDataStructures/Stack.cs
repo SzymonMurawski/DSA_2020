@@ -7,16 +7,19 @@ namespace LinearDataStructures
     public class Stack
     {
         private int[] InternalArray;
+        // Top of the stack == first node of InternalList
+        private LinkedList InternalList;
         public int Count;
         public Stack()
         {
             Count = 0;
+            InternalList = new LinkedList();
             InternalArray = new int[100];
         }
         // this should add a new element at the top of the stack
         public void Push(int value)
         {
-            InternalArray[Count] = value;
+            InternalList.AddFirst(value);
             Count++;
         }
 
@@ -27,9 +30,8 @@ namespace LinearDataStructures
             {
                 throw new NullReferenceException();
             }
-            int returnValue = InternalArray[Count - 1];
             Count--;
-            return returnValue;
+            return InternalList.RemoveFirst();
         }
 
         public int Peek()
@@ -38,7 +40,7 @@ namespace LinearDataStructures
             {
                 throw new NullReferenceException();
             }
-            return InternalArray[Count - 1];
+            return InternalList.First.Data;
         }
     }
 }
