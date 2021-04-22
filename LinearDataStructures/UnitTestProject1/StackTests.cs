@@ -17,17 +17,32 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestAddTwoElementsToEmptyStack()
         {
-
+            Stack stack = new Stack();
+            stack.Push(5);
+            stack.Push(3);
+            Assert.AreEqual(2, stack.Count);
+            Assert.AreEqual(3, stack.Peek());
         }
         [TestMethod]
         public void TestAddAndRemoveOneElementFromTheStack()
         {
-
+            Stack stack = new Stack();
+            stack.Push(5);
+            int value = stack.Pop();
+            Assert.AreEqual(0, stack.Count);
+            Assert.AreEqual(5, value);
+            Assert.ThrowsException<System.NullReferenceException>( () => stack.Peek() ); // lambda function
         }
         [TestMethod]
         public void TestAddTwoElementsAndRemoveOneFromTheStack()
         {
-
+            Stack stack = new Stack();
+            stack.Push(5);
+            stack.Push(3);
+            int value = stack.Pop();
+            Assert.AreEqual(1, stack.Count);
+            Assert.AreEqual(5, stack.Peek());
+            Assert.AreEqual(3, value);
         }
     }
 }
