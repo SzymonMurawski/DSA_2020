@@ -4,7 +4,7 @@ using LinearDataStructures;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class LinkedListTests
     {
         [TestMethod]
         public void TestAddFirstToEmptyList()
@@ -24,7 +24,6 @@ namespace UnitTestProject1
             Assert.AreEqual(2, list.Count);
             Assert.AreEqual(list.First.Next, list.Last);
             Assert.IsTrue(list.Last != null);
-
         }
     }
 }

@@ -8,11 +8,11 @@ namespace LinearDataStructures
     {
         public int Data { get; set; }
         public LinkedListNode Next { get; set; }
+        // Constructor 
         public LinkedListNode(int value)
         {
             Data = value;
             Next = null;
         }
-
     }
 }
