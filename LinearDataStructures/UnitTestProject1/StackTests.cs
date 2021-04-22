@@ -9,7 +9,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestAddElementToEmptyStack()
         {
-            Stack stack = new Stack();
+            Stack<int> stack = new Stack<int>();
             stack.Push(5);
             Assert.AreEqual(1, stack.Count);
             Assert.AreEqual(5, stack.Peek());
@@ -17,7 +17,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestAddTwoElementsToEmptyStack()
         {
-            Stack stack = new Stack();
+            Stack<int> stack = new Stack<int>();
             stack.Push(5);
             stack.Push(3);
             Assert.AreEqual(2, stack.Count);
@@ -26,7 +26,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestAddAndRemoveOneElementFromTheStack()
         {
-            Stack stack = new Stack();
+            Stack<int> stack = new Stack<int>();
             stack.Push(5);
             int value = stack.Pop();
             Assert.AreEqual(0, stack.Count);
@@ -36,7 +36,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestAddTwoElementsAndRemoveOneFromTheStack()
         {
-            Stack stack = new Stack();
+            Stack<int> stack = new Stack<int>();
             stack.Push(5);
             stack.Push(3);
             int value = stack.Pop();

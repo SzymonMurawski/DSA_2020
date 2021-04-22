@@ -9,7 +9,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestAddFirstToEmptyList()
         {
-            LinkedList list = new LinkedList();
+            LinkedList<int> list = new LinkedList<int>();
             list.AddFirst(3);
             Assert.AreEqual(1, list.Count);
             Assert.AreEqual(list.First, list.Last);
@@ -18,7 +18,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestAddFirstForTwoElements()
         {
-            LinkedList list = new LinkedList();
+            LinkedList<int> list = new LinkedList<int>();
             list.AddFirst(3);
             list.AddFirst(7);
             Assert.AreEqual(2, list.Count);
@@ -28,7 +28,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestRemoveFirstElement()
         {
-            LinkedList list = new LinkedList();
+            LinkedList<int> list = new LinkedList<int>();
             list.AddFirst(3);
             list.AddFirst(7);
             int value1 = list.RemoveFirst();

@@ -4,12 +4,12 @@ using System.Text;
 
 namespace LinearDataStructures
 {
-    public class LinkedListNode
+    public class LinkedListNode<DataType>
     {
-        public int Data { get; set; }
-        public LinkedListNode Next { get; set; }
+        public DataType Data { get; set; }
+        public LinkedListNode<DataType> Next { get; set; }
         // Constructor 
-        public LinkedListNode(int value)
+        public LinkedListNode(DataType value)
         {
             Data = value;
             Next = null;

@@ -4,10 +4,10 @@ using System.Text;
 
 namespace LinearDataStructures
 {
-    public class LinkedList
+    public class LinkedList<DataType>
     {
-        public LinkedListNode First { get; set; }
-        public LinkedListNode Last { get; set; }
+        public LinkedListNode<DataType> First { get; set; }
+        public LinkedListNode<DataType> Last { get; set; }
         public int Count { get; set; }
         public LinkedList()
         {
@@ -15,9 +15,9 @@ namespace LinearDataStructures
             First = null;
             Last = null;
         }
-        public void AddLast(int value)
+        public void AddLast(DataType value)
         {
-            LinkedListNode newNode = new LinkedListNode(value);
+            LinkedListNode<DataType> newNode = new LinkedListNode<DataType>(value);
             if(Last != null)
             {
                 Last.Next = newNode;
@@ -29,9 +29,9 @@ namespace LinearDataStructures
             Last = newNode;
             Count++;
         }
-        public void AddFirst(int value)
+        public void AddFirst(DataType value)
         {
-            LinkedListNode newNode = new LinkedListNode(value);
+            LinkedListNode<DataType> newNode = new LinkedListNode<DataType>(value);
             if(First != null)
             {
                 newNode.Next = First;
@@ -43,9 +43,9 @@ namespace LinearDataStructures
             }
             Count++;
         }
-        public int RemoveFirst()
+        public DataType RemoveFirst()
         {
-            int returnValue = First.Data;
+            DataType returnValue = First.Data;
             First = First.Next;
             Count--;
             if(Count == 0)
