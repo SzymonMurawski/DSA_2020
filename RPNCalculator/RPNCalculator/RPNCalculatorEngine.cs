@@ -1,4 +1,6 @@
-﻿namespace RPNCalculator
+﻿using System.Collections.Generic;
+
+namespace RPNCalculator
 {
     public class RPNCalculatorEngine
     {
@@ -10,16 +12,33 @@
             } else
             {
                 string[] elements = postfixEquation.Split(' ');
-                double operand1 = double.Parse(elements[0]);
-                double operand2 = double.Parse(elements[1]);
-                string operatorSymbol = elements[2];
-                if (operatorSymbol == "+")
+                var operandsStack = new Stack<double>();
+                foreach (string element in elements)
                 {
-                    return operand1 + operand2;
-                } else
-                {
-                    return operand1 - operand2;
+                    if (double.TryParse(element, out double number))
+                    {
+                        operandsStack.Push(number);
+                    } else
+                    {
+                        double operand2 = operandsStack.Pop();
+                        double operand1 = operandsStack.Pop();
+                        string operatorSymbol = element;
+                        operandsStack.Push(EvaluateExpression(operand1, operand2, operatorSymbol));
+                    }
                 }
+                return operandsStack.Pop();
+            }
+        }
+
+        private static double EvaluateExpression(double operand1, double operand2, string operatorSymbol)
+        {
+            if (operatorSymbol == "+")
+            {
+                return operand1 + operand2;
+            }
+            else
+            {
+                return operand1 - operand2;
             }
         }
     }

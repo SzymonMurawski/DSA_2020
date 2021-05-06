@@ -28,5 +28,10 @@ namespace RPNTests
         {
             Assert.AreEqual(6, rpnCalculator.Evaluate("2,5 3,5 +"));
         }
+        [TestMethod]
+        public void TestAddThreeNumbers()
+        {
+            Assert.AreEqual(9, rpnCalculator.Evaluate("2 3 4 + +"));
+        }
     }
 }
