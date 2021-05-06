@@ -23,5 +23,10 @@ namespace RPNTests
         {
             Assert.AreEqual(1, rpnCalculator.Evaluate("3 2 -"));
         }
+        [TestMethod]
+        public void TestAddTwoFloats()
+        {
+            Assert.AreEqual(6, rpnCalculator.Evaluate("2,5 3,5 +"));
+        }
     }
 }
