@@ -18,5 +18,10 @@ namespace RPNTests
         {
             Assert.AreEqual(5, rpnCalculator.Evaluate("2 3 +"));
         }
+        [TestMethod]
+        public void TestSubstractTwoNumbers()
+        {
+            Assert.AreEqual(1, rpnCalculator.Evaluate("3 2 -"));
+        }
     }
 }

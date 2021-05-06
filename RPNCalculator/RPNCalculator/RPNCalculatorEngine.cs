@@ -9,10 +9,16 @@
                 return int.Parse(postfixEquation);
             } else
             {
-                return int.Parse(postfixEquation[0].ToString())
-                + int.Parse(postfixEquation[2].ToString());
+                int operand1 = int.Parse(postfixEquation[0].ToString());
+                int operand2 = int.Parse(postfixEquation[2].ToString());
+                if (postfixEquation[4] == '+')
+                {
+                    return operand1 + operand2;
+                } else
+                {
+                    return operand1 - operand2;
+                }
             }
-            
         }
     }
 }
