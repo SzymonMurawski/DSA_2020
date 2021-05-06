@@ -7,8 +7,10 @@ namespace RPNTests
     public class EvaluateTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestEvaluateSingleNumber()
         {
+            var rpnCalculator = new RPNCalculatorEngine();
+            Assert.AreEqual(5, rpnCalculator.Evaluate("5"));
         }
     }
 }
