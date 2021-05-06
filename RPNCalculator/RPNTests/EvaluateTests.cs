@@ -6,11 +6,17 @@ namespace RPNTests
     [TestClass]
     public class EvaluateTests
     {
+        readonly RPNCalculatorEngine rpnCalculator = new RPNCalculatorEngine();
         [TestMethod]
         public void TestEvaluateSingleNumber()
         {
-            var rpnCalculator = new RPNCalculatorEngine();
             Assert.AreEqual(5, rpnCalculator.Evaluate("5"));
+        }
+
+        [TestMethod]
+        public void TestAddTwoNumbers()
+        {
+            Assert.AreEqual(5, rpnCalculator.Evaluate("2 3 +"));
         }
     }
 }

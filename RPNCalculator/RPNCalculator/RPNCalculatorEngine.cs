@@ -4,7 +4,15 @@
     {
         public int Evaluate(string postfixEquation)
         {
-            return int.Parse(postfixEquation);
+            if(postfixEquation.Length == 1)
+            {
+                return int.Parse(postfixEquation);
+            } else
+            {
+                return int.Parse(postfixEquation[0].ToString())
+                + int.Parse(postfixEquation[2].ToString());
+            }
+            
         }
     }
 }
