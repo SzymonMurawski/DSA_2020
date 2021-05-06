@@ -4,12 +4,31 @@ using System.Text;
 
 namespace SortingAlgorithms
 {
+    public enum Distribution
+    {
+        Ascending,
+        Descending
+    }
     public class DistributionGenerator
     {
         public DistributionGenerator()
         {
 
         }
+
+        public int[] GenerateDistribution(int size, Distribution distribution)
+        {
+            switch (distribution)
+            {
+                case Distribution.Ascending:
+                    return GenerateAscendingDistribution(size);
+                case Distribution.Descending:
+                    return GenerateDescendingDistribution(size);
+                default:
+                    return GenerateAscendingDistribution(size);
+            }
+        }
+
         public int[] GenerateAscendingDistribution(int size)
         {
             int[] array = new int[size];

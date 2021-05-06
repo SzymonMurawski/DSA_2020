@@ -14,15 +14,16 @@ namespace SortingAlgorithms
             var arrayGenerator = new DistributionGenerator();
             foreach (int size in new int[] { 1000000, 10000000, 100000000 })
             {
-                int[] array = arrayGenerator.GenerateAscendingDistribution(size);
-                var watch = new System.Diagnostics.Stopwatch();
-                watch.Start();
-                sortEngine.Sort(array);
-                watch.Stop();
-                Console.WriteLine($"Size={size}, Time={watch.ElapsedMilliseconds}ms");
+                foreach (Distribution distribution in Enum.GetValues(typeof(Distribution)))
+                {
+                    int[] array = arrayGenerator.GenerateDistribution(size, distribution);
+                    var watch = new System.Diagnostics.Stopwatch();
+                    watch.Start();
+                    sortEngine.Sort(array);
+                    watch.Stop();
+                    Console.WriteLine($"{distribution}: Size={size}, Time={watch.ElapsedMilliseconds}ms");
+                }
             }
-
-            
         }
     }
 }
